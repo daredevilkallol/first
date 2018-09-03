@@ -1,0 +1,35 @@
+h1{
+
+	margin: 100px auto 10px auto;
+	text-align: center;
+	color: rgba(255,0,0,1);
+	border: 2px solid gray;
+	width: 500px;
+	background: #5993E7;
+	font-size: 30px;
+	font-weight: normal;
+	text-shadow: 1px 0px #ff0000;
+}
+
+#input{
+	width: 500px;
+	padding: 4px 10px;
+	background-color: #E4EEB3;
+}
+
+textarea{
+	width: 500px;
+	padding: 4px 10px;
+	background-color: #E4EEB3;
+	height: 200px;
+}
+
+#div2{
+	margin: 10px auto;
+	border: 1px solid gray;
+	width: 500px;
+}
+
+body{
+	background-image: linear-gradient(to top, #1970ee, #009cf7, #4cc0f3, #a2dfef, #f0f9f9);
+}

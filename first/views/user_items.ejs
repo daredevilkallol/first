@@ -1,0 +1,22 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+	<h1>Your Uploaded Items</h1>
+
+	<% sentItem.items.forEach(function(userItems){ %>
+		<div>
+			<b> <%= userItems.Name %> </b><br>
+			<%= userItems._id %> <br>
+			<%= userItems.Model %> <br>
+
+			<a href="/show_item/<%=userItems._id%>">
+				<button type="button" class="btn btn-primary btn-sm" name="delete_item">Read More</button>
+			</a>
+
+			<hr>
+		</div>
+
+	<% }); %>
+</div>
+
+<% include partials/footer.ejs %>

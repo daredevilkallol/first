@@ -1,0 +1,28 @@
+<%include partials/header.ejs %>
+
+
+<div class="container">
+	<h1><%= sentItem._id %></h1><br><br>
+
+		<div>
+			<b> <%= sentItem.Name %> </b><br>
+			<%= sentItem._id %> <br>
+			<%= sentItem.Model %> <br>
+			<%= sentItem.Category %> <br>
+			<%= sentItem.Price %> <br>
+			<%= sentItem.Description %> <br><br>
+			<b> <%= currentUserName %> </b><br>
+			<%= date %> <br><br>
+			
+			<a href="/update_item/<%= sentItem._id %>/edit"><button type="button" class="btn btn-success btn-sm">Edit</button></a>
+		
+			<form action="/show_item/<%= sentItem._id %>?_method=DELETE" method="POST" style = "display: inline">
+				<button class="btn btn-danger btn-sm">Delete</button>
+			</form>
+			
+			<hr>
+		</div>
+</div>
+
+
+<%include partials/footer.ejs %>

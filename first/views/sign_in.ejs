@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+
+<h1>Sign In</h1>
+
+<form action="/sign_in" method="POST">
+
+	<div id="div2">
+		Username: <input id="input" type="text" name="username" placeholder="Username">
+	</div>
+		
+	<div id="div2">
+		Password: <input id="input" type="password" name="password" placeholder="Password">
+	</div>
+		
+	<div id="div2">
+		<input id="input" type="submit">
+	</div>
+
+</form>
+
+<% include partials/footer.ejs %>

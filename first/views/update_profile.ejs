@@ -1,0 +1,119 @@
+<% include partials/header.ejs %>
+
+<h1>Sign Up</h1>
+
+<form action="/profile/<%= sentUserForUpdate._id %>?_method=PUT" method="POST">
+	
+	<div id="div2">
+		Userame: <input id="input" type="text" name="username" placeholder="Username" value = "<%= sentUserForUpdate.username %>" >
+	</div>
+
+	<hr>
+
+	<div id="div2">
+		Full Name: <input id="input" type="text" name="full_name" placeholder="Full Name = First Name + Last Name" value = "<%= sentUserForUpdate.Full_Name%>" >
+	</div>
+
+	<div id="div2">
+		Email Id: <input id="input" type="text" name="email_id" placeholder="Email Id" value = "<%= sentUserForUpdate.Email_Id %>" > 
+	</div>
+
+	<div id="div2">
+		Shop Name: <input id="input" type="text" name="shop_name" placeholder="Shop Name" value = "<%= sentUserForUpdate.Shop_Name %>" >
+	</div>
+		
+	<div id="div2">
+		Business Name: <input id="input" type="text" name="business_name" placeholder="Business Name Of Your Shop/Company" value = "<%= sentUserForUpdate.Business_Name %>" >
+	</div>
+
+	<div id="div2">
+		Address: Line 1: <input id="input" type="text" name="address_1" placeholder="Your Shop Address Line 1" value = "<%= sentUserForUpdate.Address_Line_1 %>" >
+	</div>
+
+	<div id="div2">
+		Address: Line 2: <input id="input" type="text" name="address_2" placeholder="Your Shop Address Line 2" value = "<%= sentUserForUpdate.Address_Line_2 %>" >
+	</div>
+
+
+	<div id="div2">
+		City: <input id="input" type="text" name="city" placeholder="City Name" value = "<%= sentUserForUpdate.City %>" >
+	</div>
+
+	<div id="div2">
+		Pin Code: <input id="input" type="number" name="pin_code" placeholder="Pin Code" value = "<%= sentUserForUpdate.Pin_Code %>">
+	</div>
+
+	<hr>
+
+	
+	<div id="div2">
+
+		User Type
+
+		<select name="user_type">
+			<option>Manager</option>
+			<option>Operational</option>
+			<option>Vendor</option>
+			<option>Customer</option>
+			<option>Dispatcher</option>
+			<option>Rider</option>
+		</select>
+
+	</div>
+
+
+	<div id="div2">
+
+		<!-- definition of categories is left -->
+		
+		<i>Select the category of the products you deal in: </i><br>
+		Product Category:<br>
+
+		<input type="checkbox" name="product_category">Electronics</input><br>
+		<input type="checkbox" name="product_category">Electrical Gadgets And Accessories</input><br>
+		<input type="checkbox" name="product_category">Clothing</input><br>
+		<input type="checkbox" name="product_category">Pantry</input><br>
+		<input type="checkbox" name="product_category">Clothing-Accessories</input><br>
+		<input type="checkbox" name="product_category">Food</input><br>
+		<input type="checkbox" name="product_category">Interiors</input><br>
+		<input type="checkbox" name="product_category">Others</input><br>
+		
+	</div>
+
+	<div id="div2">
+
+		Rider Availability:<br>
+		
+		<select name="rider_availability">
+			<option>Yes</option>
+			<option>No</option>
+		</select>
+	
+	</div>
+
+	<div id="div2">
+	
+		Business Experience:<br>
+		
+		<select name ="business_experience"> 
+			<option>Less than 1 year</option>
+			<option>1-5 years</option>
+			<option>5-10 years</option>
+			<option>10-15 years</option>
+			<option>15-20 years</option>
+			<option>20-30 years</option>
+			<option>30-50 years</option>
+			<option>More than 50 years</option>	
+		</select>
+
+	</div>
+
+	<hr>
+
+	<div id="div2">
+		<input id="input" type="submit">
+	</div>
+
+</form>
+
+<% include partials/footer.ejs %>

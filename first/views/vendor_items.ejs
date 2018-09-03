@@ -1,0 +1,22 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+	<h1>Your Uploaded Items</h1>
+
+	<% foundItems.forEach(function(thisPageItem){ %>
+		<div>
+			<b> <%= thisPageItem.Name %> </b><br>
+			<%= thisPageItem._id %> <br>
+			<%= thisPageItem.Model %> <br>
+
+			<a href="/show_item/<%=thisPageItem._id%>">
+				<button type="button" class="btn btn-primary btn-sm" name="delete_item">Read More</button>
+			</a>
+
+			<hr>
+		</div>
+
+	<% }); %>
+</div>
+
+<% include partials/footer.ejs %>

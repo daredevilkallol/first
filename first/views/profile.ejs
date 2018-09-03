@@ -1,0 +1,39 @@
+<%include partials/header.ejs %>
+
+
+<div class="container">
+	<h1><%= sentUser._id %></h1><br><br>
+
+		<div>
+			<b> <%= sentUser.username %> </b><br>
+			<b> <%= sentUser.Full_Name %> </b><br>
+			<%= sentUser._id %> <br>
+			<%= sentUser.Email_Id %> <br>
+			<%= sentUser.Shop_Name %> <br>
+			<%= sentUser.Business_Name %> <br>
+			<%= sentUser.Address_Line_1 %> <br>
+			<%= sentUser.Address_Line_2 %> <br>
+			<%= sentUser.City %> <br>
+			<%= sentUser.Pin_Code %> <br>
+			<%= sentUser.User_Type %> <br>
+			<%= sentUser.Rider_Availability %> <br>
+			<%= sentUser.Business_Experience %> <br>
+
+			<br>
+
+			<!-- <%= sentUser.Product_Category %> <br><br>
+ -->
+			
+			<a href="/profile/<%= sentUser._id %>/edit"><button type="button" class="btn btn-success btn-sm">Edit</button></a>
+			<a href="/vendor_items"><button class="btn btn-primary btn-sm">Show Added Items</button></a>
+		
+<!-- 			<form action="/profile/<%= sentUser._id %>?_method=DELETE" method="POST" style = "display: inline">
+				<button class="btn btn-danger btn-sm">Delete</button>
+			</form>
+ -->			
+			<hr>
+		</div>
+</div>
+
+
+<%include partials/footer.ejs %>
