@@ -2,18 +2,19 @@
 
 
 <div class="container">
-	<h1><%= sentItem._id %></h1><br><br>
+	<h1><%= sentItem.Name %></h1><br><br>
 
 		<div>
-			<b> <%= sentItem.Name %> </b><br>
-			<%= sentItem._id %> <br>
-			<%= sentItem.Model %> <br>
-			<%= sentItem.Category %> <br>
-			<%= sentItem.Price %> <br>
-			<%= sentItem.Description %> <br><br>
-			<b> <%= currentUserName %> </b><br>
-			<%= date %> <br><br>
-			
+			<b>Name: </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<%= sentItem.Name %> </b><br>
+			<b>Id: </b>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem._id %> <br>
+			<b>Model: </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<%= sentItem.Model %> <br>
+			<b>Category: </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem.Category %> <br>
+			<b>Price Per Piece: </b> &nbsp &nbsp &nbsp <%= sentItem.PricePerPiece %> <br>
+			<b>Quantity: </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem.Quantity %> <br>
+			<b>Total Price: </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem.Price %> <br>
+			<b>Description: </b> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem.Description %> <br><br>
+			<b>User's Name:  &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem.User %> </b><br>
+			<b>Date: </b>  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%= sentItem.Date %> <br><br>
 			<a href="/update_item/<%= sentItem._id %>/edit"><button type="button" class="btn btn-success btn-sm">Edit</button></a>
 		
 			<form action="/show_item/<%= sentItem._id %>?_method=DELETE" method="POST" style = "display: inline">

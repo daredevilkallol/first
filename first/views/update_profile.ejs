@@ -1,8 +1,98 @@
 <% include partials/header.ejs %>
 
+<script>
+    
+   function validateProfile(){
+      var x = document.forms["profile"]["username"].value;
+      var y = document.forms["profile"]["full_name"].value;
+      var z = document.forms["profile"]["email_id"].value;
+      var a = document.forms["profile"]["shop_name"].value;
+      var b = document.forms["profile"]["business_name"].value;
+      var c = document.forms["profile"]["address_1"].value;
+      var d = document.forms["profile"]["address_2"].value;
+      var e = document.forms["profile"]["city"].value;
+      var f = document.forms["profile"]["pin_code"].value;
+
+      var i;
+      var flag = 0;
+     
+
+      if (x == ""){
+          alert("Username can't be blank");
+          return false;
+      }
+
+      if ((y.length<"6")||(y.length>"30")){
+          alert("Full Name must be between 6-30 characters");
+          return false;
+      }
+
+      if (z == ""){
+      	alert("Email Id can't be blank");
+        return false;
+      }
+
+      if (z[0] == "@"){
+      	alert("Worng Email Id Format");
+        return false;
+      }
+/*
+      for(i=1;i<z.length;z++){
+      		if (z[i] == "@"){
+      			flag=1;          		
+      		}
+      }
+
+      if (flag=="0"){
+      		alert("Worng Email Id Format");
+          	return false;	
+      }
+      
+*/
+
+      if (a == ""){
+          alert("Shop Name can't be blank");
+          return false;
+      }
+
+
+      if (b == ""){
+          alert("Business Name can't be blank");
+          return false;
+      }
+
+
+      if (c == ""){
+          alert("Address 1 can't be blank");
+          return false;
+      }
+
+
+      if (d == ""){
+          alert("Address 2 can't be blank");
+          return false;
+      }
+
+
+      if (e == ""){
+          alert("City can't be blank");
+          return false;
+      }
+
+
+      if (f == ""){
+          alert("Pin Code can't be blank");
+          return false;
+      }
+
+  }
+
+</script>
+
+
 <h1>Sign Up</h1>
 
-<form action="/profile/<%= sentUserForUpdate._id %>?_method=PUT" method="POST">
+<form name="profile" action="/profile/<%= sentUserForUpdate._id %>?_method=PUT" method="POST" onsubmit="return validateProfile()">
 	
 	<div id="div2">
 		Userame: <input id="input" type="text" name="username" placeholder="Username" value = "<%= sentUserForUpdate.username %>" >
@@ -48,15 +138,12 @@
 	
 	<div id="div2">
 
-		User Type
+		<b>User Type</b>
 
 		<select name="user_type">
 			<option>Manager</option>
 			<option>Operational</option>
 			<option>Vendor</option>
-			<option>Customer</option>
-			<option>Dispatcher</option>
-			<option>Rider</option>
 		</select>
 
 	</div>
@@ -66,23 +153,21 @@
 
 		<!-- definition of categories is left -->
 		
-		<i>Select the category of the products you deal in: </i><br>
-		Product Category:<br>
+		<b><i>Select the category of the products you deal in: </i><br>
+		Product Category:<br></b>
 
-		<input type="checkbox" name="product_category">Electronics</input><br>
-		<input type="checkbox" name="product_category">Electrical Gadgets And Accessories</input><br>
-		<input type="checkbox" name="product_category">Clothing</input><br>
-		<input type="checkbox" name="product_category">Pantry</input><br>
-		<input type="checkbox" name="product_category">Clothing-Accessories</input><br>
-		<input type="checkbox" name="product_category">Food</input><br>
-		<input type="checkbox" name="product_category">Interiors</input><br>
+		<input type="checkbox" name="product_category">Sensor </input><br>
+		<input type="checkbox" name="product_category">ICs</input><br>
+		<input type="checkbox" name="product_category">Panel</input><br>
+		<input type="checkbox" name="product_category">Metal Channels</input><br>
+		<input type="checkbox" name="product_category">Metal Accessories</input><br>
 		<input type="checkbox" name="product_category">Others</input><br>
 		
 	</div>
 
 	<div id="div2">
 
-		Rider Availability:<br>
+		<b>Rider Availability:<br></b>
 		
 		<select name="rider_availability">
 			<option>Yes</option>
@@ -93,7 +178,7 @@
 
 	<div id="div2">
 	
-		Business Experience:<br>
+		<b>Business Experience:<br></b>
 		
 		<select name ="business_experience"> 
 			<option>Less than 1 year</option>
@@ -111,7 +196,7 @@
 	<hr>
 
 	<div id="div2">
-		<input id="input" type="submit">
+		<input id="input" type="submit" value="Submit">
 	</div>
 
 </form>

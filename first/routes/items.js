@@ -6,10 +6,12 @@ var User 						= require('../models/users');
 var dateTime					= require('node-datetime').create();
 
 router.get('/new_item_form', isLoggedIn, function(require, result){
-	result.render('new_item_form.ejs');
+	var userName = require.user.username;
+	result.render('new_item_form.ejs', {Username: userName});
 });
 
-router.get('/all_items', isLoggedIn, function(require, result){
+//user should be admin
+router.get('/all_items', isLoggedIn, isAdmin, function(require, result){
 	
 	Item.find({}, function(error, allItems)
 	{
@@ -49,10 +51,8 @@ router.get('/show_item/:id', isLoggedIn, function(require, result){
 		}
 		else
 		{	
-			dateTime.format('d/m/y H:M:S');
-			var dateNow = new Date(dateTime.now());
 			console.log('Item Selected');
-			result.render('show_item.ejs', {sentItem: thisItem, currentUserName: require.user.username, date: dateNow});
+			result.render('show_item.ejs', {sentItem: thisItem});
 		}
 	});
 });
@@ -69,7 +69,8 @@ router.get('/update_item/:id/edit', isLoggedIn, function(require, result){
 		else
 		{
 			console.log('Item Selected');
-			result.render('update_item.ejs', {sentItemForUpdate: thisItemForUpdate});
+			var userName = require.user.username;
+			result.render('update_item.ejs', {sentItemForUpdate: thisItemForUpdate, Username: userName});
 		}
 	});
 });
@@ -78,17 +79,27 @@ router.post('/new_item_form', function(require, result){
 	var iname = require.body.item_name;
 	var imodel = require.body.item_model;
 	var icategory = require.body.item_category;
+	var ipriceperpiece = require.body.item_price_per_piece;
+	var iquantity = require.body.item_quantity;
 	var iprice = require.body.item_price;
 	var idescription = require.body.item_description;
+	var iuser = require.body.item_user;
+
+	dateTime.format('d/m/y H:M:S');
+	var idate = new Date(dateTime.now());
+
 	
 var newItem = {
 
 	Name: iname,
 	Model: imodel,
 	Category: icategory,
+	PricePerPiece: ipriceperpiece,
+	Quantity: iquantity,
 	Price: iprice,
-	Description: idescription
-	
+	Description: idescription,
+	User: iuser,
+	Date: idate
 };
 
 	//push items to user-items
@@ -131,16 +142,26 @@ router.put('/show_item/:id', function(require, result){
 	var iname = require.body.item_name;
 	var imodel = require.body.item_model;
 	var icategory = require.body.item_category;
+	var ipriceperpiece = require.body.item_price_per_piece;
+	var iquantity = require.body.item_quantity;
 	var iprice = require.body.item_price;
 	var idescription = require.body.item_description;
+	var iuser = require.body.item_user;
+	
+	dateTime.format('d/m/y H:M:S');
+	var idateNew = new Date(dateTime.now());
 	
 	var editItem = {
 	
 		Name: iname,
 		Model: imodel,
 		Category: icategory,
+		PricePerPiece: ipriceperpiece,
+		Quantity: iquantity,
 		Price: iprice,
-		Description: idescription
+		Description: idescription,
+		User: iuser,
+		Date: idateNew
 	
 	};
 
@@ -190,5 +211,16 @@ function isLoggedIn(require, result, next){
 	}
 }
 
+function isAdmin(require, result, next){
+	if(require.user.username=="admin")
+	{
+		return next();
+	}
+	else
+	{
+		result.redirect("/vendor_items");
+	}
+
+}
 
 module.exports = router;

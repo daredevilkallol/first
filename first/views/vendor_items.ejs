@@ -1,13 +1,15 @@
 <% include partials/header.ejs %>
 
 <div class="container">
-	<h1>Your Uploaded Items</h1>
+	<h1>All Items</h1>
 
 	<% foundItems.forEach(function(thisPageItem){ %>
 		<div>
 			<b> <%= thisPageItem.Name %> </b><br>
 			<%= thisPageItem._id %> <br>
 			<%= thisPageItem.Model %> <br>
+			<b> <%= thisPageItem.User %> </b><br>
+			<b> <%= thisPageItem.Date %> </b><br>
 
 			<a href="/show_item/<%=thisPageItem._id%>">
 				<button type="button" class="btn btn-primary btn-sm" name="delete_item">Read More</button>

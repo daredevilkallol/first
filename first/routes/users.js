@@ -75,7 +75,8 @@ router.post('/sign_up', function(require, result){
 					res.redirect('/');
 				}*/
 				console.log('Signed Up And Signed In');
-				result.redirect('/'+userName);
+				//result.redirect('/'+userName);
+				result.redirect('/user_profile')
 			});
 		}
 	});

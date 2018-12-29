@@ -1,8 +1,68 @@
 <% include partials/header.ejs %>
+<script>
+    
+   function validateItem(){
+      var x = document.forms["updateItem"]["item_name"].value;
+      var y = document.forms["updateItem"]["item_model"].value;
+      var z = document.forms["updateItem"]["item_category"].value;
+      var a = document.forms["updateItem"]["item_price_per_piece"].value;
+      var b = document.forms["updateItem"]["item_quantity"].value;
+      var c = document.forms["updateItem"]["item_price"].value;
+      var d = document.forms["updateItem"]["item_description"].value;
+      
 
-<form action="/show_item/<%= sentItemForUpdate._id %>?_method=PUT" method="POST">
+     // console.log(x);
 
-	<h1>Update <%=sentItemForUpdate._id%></h1>
+      if (x == ""){
+          alert("Item Name can't be blank");
+          return false;
+      }
+
+      if (y == ""){
+          alert("Item Model Number cannot be blank");
+          return false;
+      }
+
+
+      if (z == ""){
+          alert("Item Category can't be blank");
+          return false;
+      }
+
+
+      if (a == ""){
+          alert("Price Per Piece can't be blank");
+          return false;
+      }
+
+
+      if (b == ""){
+          alert("Quantity can't be blank");
+          return false;
+      }
+
+
+      if (c == ""){
+          alert("Net Price can't be blank");
+          return false;
+      }
+
+
+      if (d == ""){
+          alert("Text Area can't be blank");
+          return false;
+      }
+  }
+
+</script>
+
+<form name="updateItem" action="/show_item/<%= sentItemForUpdate._id %>?_method=PUT" method="POST" onsubmit="return validateItem()">
+
+	<h1>Update <%=sentItemForUpdate.Name%></h1>
+
+	<div id="div2">
+		<input id="input" type="text" name="item_user" value="<%= Username %>" readonly>
+	</div>
 
 	<div id="div2">
 		<input id="input" type="text" name="item_name" placeholder="Item Name" value="<%= sentItemForUpdate.Name %>">
@@ -15,9 +75,17 @@
 	<div id="div2">
 		<input id="input" type="text" name="item_category" placeholder="Item Category" value="<%= sentItemForUpdate.Category %>">
 	</div>
-		
+	
 	<div id="div2">
-		<input id="input" type="number" name="item_price" placeholder="Price" value="<%= sentItemForUpdate.Price %>">
+		<input id="input" type="number" name="item_price_per_piece" placeholder="Price Per Piece" value="<%= sentItemForUpdate.PricePerPiece %>">
+	</div>
+
+	<div id="div2">
+		<input id="input" type="number" name="item_quantity" placeholder="Quantity" value="<%= sentItemForUpdate.Quantity %>">
+	</div>
+
+	<div id="div2">
+		<input id="input" type="number" name="item_price" placeholder="Net Price" value="<%= sentItemForUpdate.Price %>">
 	</div>
 
 	<div id="div2">
